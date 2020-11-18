@@ -1,0 +1,102 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Blank Page</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Blank Page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Formularios por Template</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+            <i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="guardar(forma)" #forma="ngForm" autocomplete="off">
+                    <div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Nombre</label>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="nombre" [class.is-invalid]="(nombre.invalid && nombre.touched) || (nombre.invalid && forma.submitted)" [ngModel]="usuario.nombre" placeholder="Nombre" required minlength="5" #nombre="ngModel">
+                                <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">Ingrese al menos 5 caracteres</small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Apellido</label>
+                            <div class="col-8">
+                                <input class="form-control" type="text" name="apellido" [class.is-invalid]="apellido.invalid && apellido.touched" [ngModel]="usuario.apellido" placeholder="Apellido" required minlength="2" #apellido="ngModel">
+                                <small *ngIf="apellido.invalid && apellido.touched" class="form-text text-danger">Ingrese al menos 5 caracteres</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Correo</label>
+                        <div class="col-8">
+                            <input class="form-control" type="email" name="correo" [ngModel]="usuario.correo" [class.is-invalid]="correo.invalid && correo.touched" placeholder="Correo electrónico" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #correo="ngModel">
+                            <small *ngIf="correo.invalid && correo.touched" class="form-text text-danger">El campo correo es obligatorio    </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">País</label>
+                        <div class="col-8">
+                            <select class="form-control" name="pais" [class.is-invalid]="pais.invalid && pais.touched" [ngModel]="usuario.pais" required #pais="ngModel">
+                                <option *ngFor="let pais of paises" [value]="pais.codigo" [disabled]="pais.length === 0">
+                                    {{pais.nombre}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Género</label>
+                        <div class="col-8">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="radio1" [class.is-invalid]="genero.invalid && genero.touched" name="genero" value="M" [ngModel]="usuario.genero" required #genero="ngModel">
+                                <label class="form-check-label" for="radio1">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="radio2" [class.is-invalid]="genero.invalid && genero.touched" name="genero" value="F" [ngModel]="usuario.genero" required #genero="ngModel">
+                                <label class="form-check-label" for="radio2">Femenino</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">&nbsp;</label>
+                        <div class="input-group col-md-8">
+                            <button type="submit" class="btn btn-outline-primary btn-block">
+                          Guardar
+                        </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card-body -->
+            <!--<div class="card-footer">
+                Footer
+            </div>-->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>

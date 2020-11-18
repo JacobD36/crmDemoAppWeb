@@ -1,0 +1,20 @@
+<div class="d-flex align-items-center justify-content-center ht-100v">
+    <img src="assets/images/cityskyes.jpg" class="wd-100p ht-100p object-fit-cover" alt="">
+    <div class="overlay-body bg-black-6 d-flex align-items-center justify-content-center">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded bd bd-white-2 bg-black-7">
+                <div class="signin-logo tx-center tx-28 tx-bold tx-white"><span class="tx-normal"></span> CRM <span class="tx-info">plus</span> <span class="tx-normal"></span></div>
+                <div class="tx-white-5 tx-center mg-b-60">Sistema de Administración</div>
+                <span *ngIf="f.submitted && f.controls['coduser'].invalid" class="text-danger animated fadeIn">El código de usuario es obligatorio</span>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="userData.codUser" name="coduser" class="form-control fc-outline-dark" placeholder="Ingrese su usuario" required>
+                </div>
+                <span *ngIf="f.submitted && f.controls['password'].invalid" class="text-danger animated fadeIn">Por favor, ingrese su contraseña</span>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="userData.password" name="password" class="form-control fc-outline-dark" placeholder="Ingrese su contraseña" required>
+                </div>
+                <button type="submit" class="btn btn-info btn-block">Ingresar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Blank Page</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Blank Page</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Formularios Reactivos</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <i class="fas fa-minus"></i></button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+            <i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()">
+                    <div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Nombre</label>
+                            <div class="col-8">
+                                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-2 col-form-label">Apellido</label>
+                            <div class="col-8">
+                                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Correo</label>
+                        <div class="col-8">
+
+                            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">&nbsp;</label>
+                        <div class="input-group col-md-8">
+                            <button type="submit" class="btn btn-outline-primary btn-block">
+                          Guardar
+                        </button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <pre>
+                    Estado del formulario: {{forma.valid}}
+                    <br>
+                    Status: {{forma.status}}
+                </pre>
+                <pre>
+                    {{forma.value | json}}
+                </pre>
+            </div>
+            <!-- /.card-body -->
+            <!--<div class="card-footer">
+                Footer
+            </div>-->
+            <!-- /.card-footer-->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
